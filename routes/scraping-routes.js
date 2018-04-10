@@ -2,6 +2,8 @@ var path = require("path");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
+var db = require("../models");
+
 //var db = require("../models");
 module.exports = function(app) {
     // A GET route for scraping the echoJS website
@@ -14,21 +16,18 @@ module.exports = function(app) {
         // Now, we grab every h2 within an article tag, and do the following:
         $(".post-block").each(function(i, element) {
             // Save an empty result object
-            var results = [];
+            var result = {};
     
             // Add the text and href of every link, and save them as properties of the result object
-            var title = $(this).find("header").find("h2").find("a").text().replace("\n\t\t\t\t", "").replace("\t\t\t", ""); 
-            var article = $(this).find(".post-block__content").text().replace("\n\t\t", "").replace("\t", ""); 
-            var link = $(this).find("header").find("h2").find("a").attr("href");
+            result.title = $(this).find("header").find("h2").find("a").text().replace("\n\t\t\t\t", "").replace("\t\t\t", ""); 
+            result.article = $(this).find(".post-block__content").text().replace("\n\t\t", "").replace("\t", ""); 
+            result.link = $(this).find("header").find("h2").find("a").attr("href");
+            result.img = $(this).find("footer").find("figure").find("img").attr("src");
             
-            results.push({
-                title: title,
-                article: article,
-                link: link
-              });
-            console.log(results); 
-            // Create a new Article using the `result` object built from scraping
-            /*db.Article.create(result)
+            console.log(result);
+            
+            //Create a new Article using the `result` object built from scraping
+            db.Article.create(result)
             .then(function(dbArticle) {
                 // View the added result in the console
                 res.end(); 
@@ -36,7 +35,7 @@ module.exports = function(app) {
             .catch(function(err) {
                 // If an error occurred, send it to the client
                 return res.json(err);
-            });*/
+            });
         });
     
     

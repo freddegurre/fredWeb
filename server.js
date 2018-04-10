@@ -11,8 +11,7 @@ var PORT = 3080;
 var app = express();
 var PORT = process.env.PORT || 8080;
 
-// Requiring our models for syncing
-//var db = require("./models");
+
 
 // Configure middleware
 
@@ -30,7 +29,9 @@ app.set("view engine", "handlebars");
 
 //requre things in public
 //app.use(express.static("public"));
+// Requiring our models for syncing
 
+var db = require("./models");
 //all routes 
 require("./routes/scraping-routes.js")(app);
 require("./routes/html-routes.js")(app);
