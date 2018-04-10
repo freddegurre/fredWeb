@@ -28,7 +28,8 @@ var ArticleSchema = new Schema({
   // The ref property links the ObjectId to the Note model
   // This allows us to populate the Article with an associated Note
   note: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: "Note"
   }, 
   created: {
     type: Date,

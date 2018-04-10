@@ -34,6 +34,7 @@ var db = require("./models");
 //all routes 
 require("./routes/scraping-routes.js")(app);
 require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 
 // Start the server
