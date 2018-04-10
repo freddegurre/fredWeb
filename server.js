@@ -2,8 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
-var axios = require("axios");
-var cheerio = require("cheerio");
+
 
 var PORT = 3080;
 
@@ -30,8 +29,8 @@ app.set("view engine", "handlebars");
 //requre things in public
 //app.use(express.static("public"));
 // Requiring our models for syncing
-
 var db = require("./models");
+
 //all routes 
 require("./routes/scraping-routes.js")(app);
 require("./routes/html-routes.js")(app);

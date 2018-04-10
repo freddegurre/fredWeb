@@ -9,7 +9,7 @@ var ArticleSchema = new Schema({
   title: {
     type: String,
     required: true,
-    unique: true
+    unique: "will not make copies"
   },
   article: {
     type: String,
@@ -29,7 +29,11 @@ var ArticleSchema = new Schema({
   // This allows us to populate the Article with an associated Note
   note: {
     type: String,
-  }
+  }, 
+  created: {
+    type: Date,
+    default: Date.now
+  },
 });
 
 // This creates our model from the above schema, using mongoose's model method

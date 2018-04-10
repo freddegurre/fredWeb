@@ -1,0 +1,14 @@
+<h1>Hey hey hey</h1>
+
+
+{{#each posts}}
+<div class="newsBlock">
+<p>{{this.title}}</p>
+<p>{{this.article}}</p>
+<p>{{this.link}}</p>
+<p>{{this.img}}</p>
+<p>{{this.created}}</p>
+<button class="leave-note" data-id="{{this._id}}">Leave note</button>
+</div>
+
+{{/each}}
