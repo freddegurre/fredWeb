@@ -27,16 +27,5 @@ $(document).on("click", ".delete", function () {
     })
 })
 
-$(document).on('click', '.addProp', function (event) {
-    event.preventDefault();
-    $("#updateProp").hide();
-    $("#deleteProp").hide();
-    $("#addProp").show();
-    $("#propName").val("");
-    $("#streetAddress").val("");
-    $("#zipCode").val("");
-    $("#city").val("")
-    $("#state").val("")
-    $("#addEditDeleteProp").modal();
-});
+
 
