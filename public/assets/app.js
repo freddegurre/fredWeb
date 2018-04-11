@@ -1,7 +1,7 @@
 $(document).on("click", ".leave-note", function () {
     console.log("i have beeen cliked")
     var id = $(this).data("id");
-    var noteWritten = $(".form-control").val()
+    var noteWritten = $(this).parent().children("textarea").val()
     console.log("id    " + id + "     data  " + noteWritten);
     $.ajax({
         method: "post",
@@ -12,7 +12,7 @@ $(document).on("click", ".leave-note", function () {
 
     }).then(function (data) {
         console.log(data);
-        $(".notes").append("<p>" + noteWritten + "</p>");
+        //$(this).parent().children(".notes").append("<p>" + noteWritten + "</p>");
     })
 })
 
