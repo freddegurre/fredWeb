@@ -1,31 +1,106 @@
 <body>
-    
+    <div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
+        <main class="mdl-layout__content">
+            <div class="demo-blog__posts mdl-grid">
 
-<h1>Hey hey hey</h1>
+                <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
+                    <div class="mdl-card__media mdl-color-text--grey-50">
+                        <h3>
+                            <a href="entry.html">My News</a>
+                        </h3>
+                    </div>
+                    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                        <div class="minilogo"></div>
+                        <div>
+                            <strong>The Newist</strong>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
+                    <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent">
+                        <i class="material-icons mdl-color-text--white" role="presentation">add</i>
+                        <span class="visuallyhidden">add</span>
+                    </button>
+                    <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
+                        <img src="/assets/images/logo.png"> +1,337
+                    </div>
+                    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
+                        <div>
+                            <strong>The Newist</strong>
+                        </div>
+                        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="menubtn">
+                            <li class="mdl-menu__item">About</li>
+                            <li class="mdl-menu__item">Message</li>
+                            <li class="mdl-menu__item">Favorite</li>
+                            <li class="mdl-menu__item">Search</li>
+                        </ul>
+                        <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                            <i class="material-icons" role="presentation">more_vert</i>
+                            <span class="visuallyhidden">show menu</span>
+                        </button>
+                    </div>
+                </div>
+
+                {{#each posts}}
+                <div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col">
+                    <div class="mdl-card__media mdl-color-text--grey-50" style="background:url({{this.img}})">
+                        <h3>
+                            <a>{{this.title}}</a>
+                        </h3>
+                    </div>
+                    <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
+                        {{this.article}}....
+                        <a href="{{this.link}}" target="_blank">More</a>
+                    </div>
+                    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                        <div class="minilogo"></div>
+                        <div class="">
+                            <strong>The Newist</strong>
+                            <span>{{this.created}}</span>
+                            <textarea class="form-control note" data-note="{{this._id}}" rows="2"></textarea>
+                            <button class="leave-note" data-id="{{this._id}}">Leave note</button>
+                            
+                        </div> 
+                        <div class="myNotes"> {{#each note}}
+                                <div>
+                                    <span>{{this.note}}</span>
+                                    <button class="delete" data-note="{{this._id}}">Delete</button>
+                                </div>
+                                {{/each}}
+                            </div>
+                    </div>
+                </div>
 
 
-{{#each posts}}
 
-<div class="newsBlock">
-    <p>{{this.title}}</p>
-    <p>{{this.article}}</p>
-    <p>{{this.link}}</p>
-    <p>{{this.img}}</p>
-    <p>{{this.created}}</p>
 
-    <textarea class="form-control note" data-note="{{this._id}}" rows="3"></textarea>
-    <button class="leave-note" data-id="{{this._id}}">Leave note</button>
+                {{/each}}
 
-    <div class="notes"> 
-        {{#each note}}
-        <div>
-        <p>{{this.note}}</p>
-         <button class="delete" data-note="{{this._id}}">Delete</button>
-       </div> 
-       {{/each}}
+            </div>
+        </main>
+        <div class="mdl-layout__obfuscator"></div>
     </div>
-</div>
 
-{{/each}}
+    <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer--left-section">
+            <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button>
+            <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger">
+                <span class="visuallyhidden">Facebook</span>
+            </button>
+            <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button>
+        </div>
+        <div class="mdl-mini-footer--right-section">
+            <button class="mdl-mini-footer--social-btn social-btn__share">
+                <i class="material-icons" role="presentation">share</i>
+                <span class="visuallyhidden">share</span>
+            </button>
+        </div>
+    </footer>
 
 </body>

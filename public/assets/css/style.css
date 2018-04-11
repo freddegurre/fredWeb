@@ -1,5 +1,11 @@
-.newsBlock{
-margin: 10px; 
-padding: 5px; 
-background-color: bisque; 
+body{
+    background: lightgray;
+}
+.myNotes{
+    position: absolute;
+    right: 40px;
+}
+
+.demo-blog.mdl-layout .mdl-layout__content{
+    padding-top: 60px;
 }

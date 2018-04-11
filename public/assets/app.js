@@ -12,7 +12,8 @@ $(document).on("click", ".leave-note", function () {
 
     }).then(function (data) {
         console.log(data);
-        //$(this).parent().children(".notes").append("<p>" + noteWritten + "</p>");
+        location.reload();
+       
     })
 })
 
@@ -24,6 +25,7 @@ $(document).on("click", ".delete", function () {
         url: "/notes/" + id
     }).then(function (data) {
         console.log(data);
+        location.reload();
     })
 })
 
