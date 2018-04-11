@@ -17,7 +17,7 @@ var PORT = process.env.PORT || 8080;
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
-app.use(express.static("public"));
+
 
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/fredWeb");
@@ -26,8 +26,9 @@ mongoose.connect("mongodb://localhost/fredWeb");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-//requre things in public
-//app.use(express.static("public"));
+//requre all in public
+app.use(express.static("public"));
+
 // Requiring our models for syncing
 var db = require("./models");
 

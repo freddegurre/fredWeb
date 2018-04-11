@@ -8,7 +8,7 @@ module.exports = function(app) {
         .then(function(posts){
             console.log(posts); 
             //res.json(posts);
-            res.render("home", {posts: posts}); 
+           res.render("home", {posts: posts}); 
         }); 
         
     });

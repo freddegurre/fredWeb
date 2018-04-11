@@ -1,21 +1,31 @@
+<body>
+    
+
 <h1>Hey hey hey</h1>
 
 
 {{#each posts}}
+
 <div class="newsBlock">
-<p>{{this.title}}</p>
-<p>{{this.article}}</p>
-<p>{{this.link}}</p>
-<p>{{this.img}}</p>
-<p>{{this.created}}</p>
+    <p>{{this.title}}</p>
+    <p>{{this.article}}</p>
+    <p>{{this.link}}</p>
+    <p>{{this.img}}</p>
+    <p>{{this.created}}</p>
 
-<textarea class="form-control note" rows="3"></textarea>
-<button class="leave-note" data-id="{{this._id}}">Leave note</button>
+    <textarea class="form-control note" data-note="{{this._id}}" rows="3"></textarea>
+    <button class="leave-note" data-id="{{this._id}}">Leave note</button>
 
-<div>
-    <p>{{this.note.note}}</p>
+    <div class="notes"> 
+        {{#each note}}
+        <div>
+        <p>{{this.note}}</p>
+         <button class="delete" data-note="{{this._id}}">Delete</button>
+       </div> 
+       {{/each}}
+    </div>
 </div>
-</div>
-
 
 {{/each}}
+
+</body>
