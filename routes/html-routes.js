@@ -4,7 +4,7 @@ var db = require("../models");
 module.exports = function(app) {
 
     app.get("/", function(req, res) {
-        db.Article.find({}).populate("note")
+        db.Article.find().sort({_id: -1}).populate("note")
         .then(function(posts){
             console.log(posts); 
             //res.json(posts);
@@ -14,3 +14,4 @@ module.exports = function(app) {
     });
 
 }
+

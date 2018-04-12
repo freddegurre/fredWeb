@@ -6,14 +6,13 @@
                 <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
                     <div class="mdl-card__media mdl-color-text--grey-50">
                         <h3>
-                            <a href="entry.html">My News</a>
+                            <a href="#">My News</a>
                         </h3>
                     </div>
                     <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
                         <div class="minilogo"></div>
                         <div>
-                            <strong>The Newist</strong>
-
+                            <strong>Techcrunch.com</strong>
                         </div>
                     </div>
                 </div>
@@ -24,7 +23,8 @@
                         <span class="visuallyhidden">add</span>
                     </button>
                     <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
-                        <img src="/assets/images/logo.png"> +1,337
+                        <img src="/assets/images/logo.png"> Number of Posts in DB
+                        <strong>{{posts.length}}</strong>
                     </div>
                     <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
                         <div>
@@ -56,25 +56,35 @@
                     </div>
                     <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
                         <div class="minilogo"></div>
-                        <div class="">
-                            <strong>The Newist</strong>
+                        <div>
+                            <strong>
+                                <a href="https://techcrunch.com/" target="_blank">Techcrunch</a>
+                            </strong>
                             <span>{{this.created}}</span>
-                            <textarea class="form-control note" data-note="{{this._id}}" rows="2"></textarea>
-                            <button class="leave-note" data-id="{{this._id}}">Leave note</button>
-                            
-                        </div> 
-                        <div class="myNotes"> {{#each note}}
-                                <div>
-                                    <span>{{this.note}}</span>
-                                    <button class="delete" data-note="{{this._id}}">Delete</button>
+
+                            <form>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <textarea rows=1 class="mdl-textfield__input"></textarea>
+                                    <label for="comment" class="mdl-textfield__label">Join the discussion</label>
                                 </div>
-                                {{/each}}
+                                <button class="mdl-button lighten-2 mdl-js-button mdl-js-ripple-effect mdl-button--icon leave-note" data-id="{{this._id}}">
+                                    <i class="material-icons" role="presentation">check</i>
+                                    <span class="visuallyhidden">add comment</span>
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                        <div class="myNotes"> {{#each note}}
+                            <div>
+                                <span>{{this.note}}</span>
+                                <button class="delete" data-note="{{this._id}}">Delete</button>
                             </div>
+                            {{/each}}
+                        </div>
                     </div>
                 </div>
-
-
-
 
                 {{/each}}
 
@@ -83,24 +93,6 @@
         <div class="mdl-layout__obfuscator"></div>
     </div>
 
-    <footer class="mdl-mini-footer">
-        <div class="mdl-mini-footer--left-section">
-            <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter">
-                <span class="visuallyhidden">Twitter</span>
-            </button>
-            <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger">
-                <span class="visuallyhidden">Facebook</span>
-            </button>
-            <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus">
-                <span class="visuallyhidden">Google Plus</span>
-            </button>
-        </div>
-        <div class="mdl-mini-footer--right-section">
-            <button class="mdl-mini-footer--social-btn social-btn__share">
-                <i class="material-icons" role="presentation">share</i>
-                <span class="visuallyhidden">share</span>
-            </button>
-        </div>
-    </footer>
+
 
 </body>

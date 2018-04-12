@@ -1,7 +1,8 @@
-$(document).on("click", ".leave-note", function () {
+$(document).on("click", ".leave-note", function (event) {
+    event.preventDefault();
     console.log("i have beeen cliked")
     var id = $(this).data("id");
-    var noteWritten = $(this).parent().children("textarea").val()
+    var noteWritten = $(this).parent("form").children(".mdl-textfield").children("textarea").val()
     console.log("id    " + id + "     data  " + noteWritten);
     $.ajax({
         method: "post",
