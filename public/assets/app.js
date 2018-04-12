@@ -28,6 +28,10 @@ $(document).on("click", ".delete", function () {
         console.log(data);
         location.reload();
     })
+});
+
+$(document).on("click", "#scrape", function(){
+    console.log("this has been klicked")
 })
 
 

@@ -9,3 +9,9 @@ body{
 .demo-blog.mdl-layout .mdl-layout__content{
     padding-top: 60px;
 }
+
+.mdl-color-text--grey-600 .mdl-card__supporting-text{
+        padding-right: 50px; 
+
+}
+
