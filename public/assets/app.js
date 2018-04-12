@@ -32,6 +32,13 @@ $(document).on("click", ".delete", function () {
 
 $(document).on("click", "#scrape", function(){
     console.log("this has been klicked")
+    $.ajax({
+        method:"get",
+        url: "/scrape"
+    }).then(function(data){
+        console.log(data); 
+        location.reload();
+    })
 })
 
 

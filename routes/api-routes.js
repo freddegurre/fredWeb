@@ -19,6 +19,10 @@ module.exports = function(app){
         console.log(req.params.id);
         db.Note.findByIdAndRemove({_id:req.params.id},  function(err, res){
            //return res.redirect("/");
+        }).then(function(){
+            //res.render("home")
+        }).catch(function(err){
+            res.json(err); 
         })
     })
 
