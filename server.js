@@ -3,31 +3,35 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
 
-
-var PORT = 3080;
-
 // Initialize Express
 var app = express();
-var PORT = process.env.PORT || 8080;
 
-
-
-// Configure middleware
+//app.use(logger('dev'));
 
 // Use body-parser for handling form submissions
-app.use(bodyParser.urlencoded({ extended: true }));
-// Use express.static to serve the public folder as a static directory
+app.use(bodyParser.urlencoded({ extended: false }));
 
+//requre all in public
+app.use(express.static("public"));
 
+var PORT = process.env.PORT || 8080;
+
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/fredWeb";
+
+// Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/fredWeb");
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+  //useMongoClient: true
+});
+
 
 // Set Handlebars.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-//requre all in public
-app.use(express.static("public"));
+
 
 // Requiring our models for syncing
 var db = require("./models");
