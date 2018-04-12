@@ -1,5 +1,7 @@
 body{
-    background: lightgray;
+    background-image: url("../images/background6.jpg");
+   
+    
 }
 .myNotes{
     position: absolute;
