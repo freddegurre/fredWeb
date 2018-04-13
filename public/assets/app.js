@@ -21,12 +21,14 @@ $(document).on("click", ".leave-note", function (event) {
 $(document).on("click", ".delete", function () {
     var id = $(this).data("note");
     console.log(" klickkkered" + "id   " + id);
+    alert("Comment deleted, please refresh page :)")
     $.ajax({
         method: "get",
         url: "/notes/" + id
     }).then(function (data) {
-        console.log(data);
         location.reload();
+        console.log(data);
+        
     })
 });
 

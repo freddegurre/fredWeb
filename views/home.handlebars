@@ -3,8 +3,8 @@
         <main class="mdl-layout__content">
             <div class="demo-blog__posts mdl-grid">
 
-                <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col" >
-                    <div class="mdl-card__media mdl-color-text--grey-50"style="background-image:url(/assets/images/background3.jpg)">
+                <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
+                    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/assets/images/background3.jpg)">
                         <h3>
                             <a href="#">My News</a>
                         </h3>
@@ -13,6 +13,7 @@
                         <div class="minilogo"></div>
                         <div>
                             <strong>Techcrunch.com</strong>
+                             <a href="/all">JSON</a>
                         </div>
                     </div>
                 </div>
@@ -22,7 +23,7 @@
                         <img src="/assets/images/logo.png"> Number Of Scraped News
                         <strong>{{posts.length}}</strong>
                     </div>
-                    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600" >
+                    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
                         <div>
                             <strong>Scrape More News!</strong>
                         </div>
@@ -69,7 +70,7 @@
                                 <span>{{this.note}}</span>
                                 <button class="delete" data-note="{{this._id}}">Delete</button>
                             </div>
-                           
+
                             {{/each}}
                         </div>
                     </div>
@@ -81,7 +82,5 @@
         </main>
         <div class="mdl-layout__obfuscator"></div>
     </div>
-
-
 
 </body>

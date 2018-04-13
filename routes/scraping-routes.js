@@ -23,7 +23,6 @@ module.exports = function(app) {
             result.img = $(this).find("footer").find("figure").find("img").attr("src");
             
             console.log(result);
-            
            
             db.Article.create(result)
             .then(function(dbArticle) {
@@ -31,12 +30,10 @@ module.exports = function(app) {
                 res.end(); 
             })
             .catch(function(err) {
-            
                 return res.json(err);
             });
         });
     
-
         res.send("Scrape Complete");
         });
     });
